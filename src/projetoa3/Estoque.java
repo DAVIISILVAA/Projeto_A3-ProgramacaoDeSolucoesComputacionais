@@ -6,7 +6,6 @@ public class Estoque {
     
     Produto[] estoque = new Produto[1];
     int tamanhoEstoque = 0;
-    int incrementaId = 1;
     
     public void Inserir(String addNome, String addDesc, float addpreco, String addCor, int addQtd){
         
@@ -20,7 +19,7 @@ public class Estoque {
             
             for(int i = 0; i < tamanhoEstoque; i++){
                 
-            novoEstoque[i] = estoque[i];
+                novoEstoque[i] = estoque[i];
             
             }
             
@@ -28,8 +27,6 @@ public class Estoque {
         }
         
         Produto produto = new Produto(addNome,addDesc,addpreco,addCor,addQtd);
-        produto.setId(incrementaId);
-        incrementaId ++;
         
         estoque[tamanhoEstoque] = produto;
         
