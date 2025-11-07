@@ -8,7 +8,7 @@ public class Estoque {
     int tamanhoEstoque = 0;
     int incrementaId = 1;
     
-    public void Inserir(String addNome, String addDesc, float addpreco, String addCor, float addQtd){
+    public void Inserir(String addNome, String addDesc, float addpreco, String addCor, int addQtd){
         
         if (estoque.length == tamanhoEstoque){
             
@@ -38,31 +38,76 @@ public class Estoque {
         System.out.println("\nProduto " + produto.getNome() + " foi Adicionado com sucesso!\n");
         System.out.println("Tamanho estoque: " + estoque.length);
         
-        for(int i = 0; i < tamanhoEstoque; i++){
-            Produto p = estoque[i];
-            
-            System.out.println("Índice [" + i + "]: ID: " + p.getId() + " | Nome: " + p.getNome());
-        }
-     
     }
     
     public void Remover(){
     
     }
     
-    public void AtualizarLista(){
+    public void AtualizarLista(int atuId, int escolha, String novoValor){
         
+        Produto p = estoque[atuId];
+        
+        switch(escolha){
+            case 1:
+                p.setNome(novoValor);
+                System.out.println("Nome atualizado com sucesso!");
+            break;
+            
+            case 2: 
+                p.setDescricao(novoValor);
+                System.out.println("Descrição atualizada com sucesso!");
+            break;
+            
+            case 3:
+                Float atuPreco = Float.parseFloat(novoValor);
+                p.setPreco(atuPreco);
+                System.out.println("Preço atualizado com sucesso!");
+            break;
+            
+            case 4:
+                p.setCor(novoValor);
+                System.out.println("Cor atualizada com sucesso!");
+            break;
+            
+            case 5:
+                int atuqtd = Integer.parseInt(novoValor);
+                p.setqtdEstoque(atuqtd);
+                System.out.println("Cor atualizada com sucesso!");
+            break;
+            
+            default:
+                System.out.println("Nenhuma das opções validas selecionadas.\n");
+        }
+     
+        System.out.println("\nProduto " + p.getNome() + " foi atualizado com sucesso!\n");
+           
+    }
+    
+    public void VisualizarEstoque(){
+        
+        if(tamanhoEstoque == 0){
+            System.out.println("Estoque está vazio.");
+        }else{
+            
+            System.out.println("Tamanho estoque: " + estoque.length);
+        
+            for(int i = 0; i < tamanhoEstoque; i++){
+            
+            Produto p = estoque[i];
+            
+            System.out.println("\nÍndice [" + i + "]: ID: " + p.getId() + 
+                               " | Nome: " + p.getNome() + 
+                               " | Descrição: " + p.getDescricao() + 
+                               " | Preço: " + p.getPreco() + 
+                               " | Cor: " + p.getCor() +
+                               " | Quantidade: " + p.getqtdEstoque());
+            }
+        }
     }
     
     public void BuscarPorId(){
     
     }
     
-    public void RetornarInfo(){
-    
-    }
-    
-    public void RetornarIndice(){
-    
-    }  
 }

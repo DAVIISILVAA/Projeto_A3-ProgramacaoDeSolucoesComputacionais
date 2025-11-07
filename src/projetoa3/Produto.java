@@ -7,13 +7,13 @@ public class Produto {
     private String descricao;
     private float preco;
     private String cor;
-    private float qtdEstoque;
+    private int qtdEstoque;
     
     public Produto(){
     
     }
 
-    public Produto(String nome, String descricao, float preco, String cor, float qtdEstoque) {
+    public Produto(String nome, String descricao, float preco, String cor, int qtdEstoque) {
         this.nome = nome;
         this.descricao = descricao;
         this.preco = preco;
@@ -61,11 +61,11 @@ public class Produto {
         this.cor = cor;
     }
 
-    public float getqtdEstoque() {
+    public int getqtdEstoque() {
         return qtdEstoque;
     }
 
-    public void setqtdEstoque(float qtdEstoque) {
+    public void setqtdEstoque(int qtdEstoque) {
         this.qtdEstoque = qtdEstoque;
     }
   
