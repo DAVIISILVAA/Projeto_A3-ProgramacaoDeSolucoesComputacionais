@@ -3,7 +3,7 @@ package projetoa3;
 import java.util.Scanner;
 
 public class Estoque {
-
+    
     Produto[] estoque = new Produto[1];
     int tamanhoEstoque = 0;
 
