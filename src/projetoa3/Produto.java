@@ -27,6 +27,9 @@ public class Produto {
     }
 
     public void setId(int id) {
+        if (id <0){
+            throw new illegalArgumentException ("ID deve ser maior que zero.");
+        }
         this.id = id;
     }
 
@@ -35,10 +38,16 @@ public class Produto {
     }
 
     public void setNome(String nome) {
+        if (nome == null || nome.trim().isEmpty()) {
+            throw nre IllegalArgumentException("Nome não pode ser vazio.")
+        }
         this.nome = nome;
     }
 
     public String getDescricao() {
+        if (descricao == null || descricao.trim().isEmpty()) {
+            throw new IllegalArgumentException ("Descrição não pode ser vazia.");
+        }
         return descricao;
     }
 
@@ -51,6 +60,9 @@ public class Produto {
     }
 
     public void setPreco(float preco) {
+        if (preco < 0) {
+            throw illegalArgumentException ("Preço não pode ser negativo.");
+        }
         this.preco = preco;
     }
 
@@ -59,6 +71,9 @@ public class Produto {
     }
 
     public void setCor(String cor) {
+        if (cor == null || cor.trim().isEmpty()){
+            throw new illegalArgumentException("Cor não pode ser vazia");
+        }
         this.cor = cor;
     }
 
@@ -67,6 +82,9 @@ public class Produto {
     }
 
     public void setqtdEstoque(int qtdEstoque) {
+        if (qtdEstoque < 0){
+            throw illegalArgumentException ("Quandidade em estoque não pode ser negativa.");
+        }
         this.qtdEstoque = qtdEstoque;
     }
   
