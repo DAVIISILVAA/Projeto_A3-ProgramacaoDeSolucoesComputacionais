@@ -1,8 +1,9 @@
 package projetoa3;
 
 public class Produto {
-    
-    private int id = 0;
+
+    private static int incremental = 1;
+    private int id = incremental++;
     private String nome;
     private String descricao;
     private float preco;
