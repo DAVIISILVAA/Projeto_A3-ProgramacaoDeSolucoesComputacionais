@@ -110,12 +110,11 @@ public class Estoque {
 
     public int BuscarPorId(int id) {
         int localizador;
-        boolean flag = false;
 
         for (localizador = 0; localizador < estoque.length; localizador++) {
 
             if (id == estoque[localizador].getId()) {
-                flag = true;
+                break;
             }
         }
 

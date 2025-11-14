@@ -3,7 +3,7 @@ package projetoa3;
 public class Produto {
 
     private static int incremental = 1;
-    private int id = incremental++;
+    private final int id = incremental++;
     private String nome;
     private String descricao;
     private float preco;
@@ -26,32 +26,23 @@ public class Produto {
         return id;
     }
 
-    public void setId(int id) {
-        if (id <0){
-            throw new illegalArgumentException ("ID deve ser maior que zero.");
-        }
-        this.id = id;
-    }
-
     public String getNome() {
         return nome;
     }
 
     public void setNome(String nome) {
         if (nome == null || nome.trim().isEmpty()) {
-            throw nre IllegalArgumentException("Nome não pode ser vazio.")
+            throw new IllegalArgumentException("Nome não pode ser vazio.");
         }
         this.nome = nome;
     }
 
-    public String getDescricao() {
+    public String getDescricao() { return descricao; }
+
+    public void setDescricao(String descricao) {
         if (descricao == null || descricao.trim().isEmpty()) {
             throw new IllegalArgumentException ("Descrição não pode ser vazia.");
         }
-        return descricao;
-    }
-
-    public void setDescricao(String descricao) {
         this.descricao = descricao;
     }
 
@@ -61,7 +52,7 @@ public class Produto {
 
     public void setPreco(float preco) {
         if (preco < 0) {
-            throw illegalArgumentException ("Preço não pode ser negativo.");
+            throw new IllegalArgumentException ("Preço não pode ser negativo.");
         }
         this.preco = preco;
     }
@@ -72,7 +63,7 @@ public class Produto {
 
     public void setCor(String cor) {
         if (cor == null || cor.trim().isEmpty()){
-            throw new illegalArgumentException("Cor não pode ser vazia");
+            throw new IllegalArgumentException("Cor não pode ser vazia");
         }
         this.cor = cor;
     }
@@ -83,7 +74,7 @@ public class Produto {
 
     public void setqtdEstoque(int qtdEstoque) {
         if (qtdEstoque < 0){
-            throw illegalArgumentException ("Quandidade em estoque não pode ser negativa.");
+            throw new IllegalArgumentException ("Quandidade em estoque não pode ser negativa.");
         }
         this.qtdEstoque = qtdEstoque;
     }
