@@ -15,14 +15,11 @@ public final class Produto {
     }
 
     public Produto(String nome, String descricao, float preco, String cor, int qtdEstoque) {
-    
-    // ao inv�s de fazer o if de valida��o dnv aqui no construtor, podemos usar o set
-     
-    setNome(nome);           
-    setDescricao(descricao); 
-    setPreco(preco);         
-    setCor(cor);             
-    setqtdEstoque(qtdEstoque);
+        setNome(nome);           
+        setDescricao(descricao); 
+        setPreco(preco);         
+        setCor(cor);             
+        setqtdEstoque(qtdEstoque);
     }
 
     public int getId() {

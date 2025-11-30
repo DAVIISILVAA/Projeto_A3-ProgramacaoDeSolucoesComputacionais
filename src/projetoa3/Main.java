@@ -71,7 +71,7 @@ public class Main {
                 case 2: 
                     
                     if (meuEstoque.tamanhoEstoque == 0) { 
-                    System.out.println("Estoque vazio! N�o h� nada para remover.");
+                    System.out.println("Estoque vazio! N�o h� nada para atualizar.");
                     } else {
                         
                         System.out.println("--- Removendo produto... ---\n");
@@ -83,7 +83,7 @@ public class Main {
                         
                         if (indiceEncontrado == -1) {
                             System.out.println("\nProduto com ID " + remId + " n�o existe!");
-                        } else{
+                        } else {
                         meuEstoque.Remover(remId); 
                         } 
                     }
