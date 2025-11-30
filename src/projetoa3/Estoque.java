@@ -38,12 +38,11 @@ public class Estoque {
     
    
     public void Remover(int id){
+        
         int posicao = BuscarPorId(id);
 
-        //Remove o produto e tira o Indice que foi removido colocando o proximo objeto no lugar
-
         if(posicao == -1){
-            System.out.println("Produto não encontrado");
+            System.out.println("Produto n�o encontrado");
         }
         else {
             for(int i = posicao; i < tamanhoEstoque - 1; i++){
@@ -57,7 +56,14 @@ public class Estoque {
     
     public void AtualizarLista(int atuId, int escolha, String novoValor){
                  
-         Produto p = estoque[BuscarPorId(atuId)];
+        int indice = BuscarPorId(atuId); 
+         
+        if (indice == -1) { // 2. Verifica se existe
+        System.out.println("Erro cr�tico: Tentativa de atualizar ID inexistente.");
+        return; 
+        }
+        
+        Produto p = estoque[indice];
 
         try{
         switch(escolha){
