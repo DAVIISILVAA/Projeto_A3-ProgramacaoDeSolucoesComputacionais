@@ -36,12 +36,22 @@ public class Estoque {
 
     }
     
+   
     public void Remover(int id){
         int posicao = BuscarPorId(id);
 
-        if(posicao != 99999){
-            estoque[posicao] = null;
-            System.out.println("Produto foi removido");
+        //Remove o produto e tira o Indice que foi removido colocando o proximo objeto no lugar
+
+        if(posicao == -1){
+            System.out.println("Produto não encontrado");
+        }
+        else {
+            for(int i = posicao; i < tamanhoEstoque - 1; i++){
+                estoque[i] = estoque[i + 1];
+            }
+            estoque[tamanhoEstoque - 1] = null;
+            tamanhoEstoque--;
+            System.out.println("Produto removido com sucesso");
         }
     }
     

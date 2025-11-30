@@ -70,6 +70,10 @@ public class Main {
                 
                 case 2: 
                     System.out.println("Removendo produto...\n");
+                    System.out.println("Digite o Id que deseja remover");
+                    int remId = Integer.parseInt(teclado.nextLine());
+                    meuEstoque.Remover(remId);
+                    
                 break;
                 
                 case 3:
