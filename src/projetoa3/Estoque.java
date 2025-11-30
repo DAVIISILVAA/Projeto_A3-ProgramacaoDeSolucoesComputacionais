@@ -23,7 +23,6 @@ public class Estoque {
             novoEstoque[i] = estoque[i];
             
             }
-            
            estoque = novoEstoque;
         }
         
@@ -40,48 +39,63 @@ public class Estoque {
         
     }
     
-    public void Remover(){
-    
+    public void Remover(int id){
+        int posicao = BuscarPorId(id);
+
+        if(posicao != 99999){
+            estoque[posicao] = null;
+            System.out.println("Produto foi removido");
+        }
     }
     
     public void AtualizarLista(int atuId, int escolha, String novoValor){
-        
-        Produto p = estoque[atuId];
-        
+                 
+         Produto p = estoque[BuscarPorId(atuId)];
+
+        try{
         switch(escolha){
             case 1:
                 p.setNome(novoValor);
                 System.out.println("Nome atualizado com sucesso!");
             break;
-            
+
             case 2: 
                 p.setDescricao(novoValor);
                 System.out.println("Descrição atualizada com sucesso!");
             break;
-            
+
             case 3:
                 Float atuPreco = Float.parseFloat(novoValor);
                 p.setPreco(atuPreco);
                 System.out.println("Preço atualizado com sucesso!");
             break;
-            
+
             case 4:
                 p.setCor(novoValor);
                 System.out.println("Cor atualizada com sucesso!");
             break;
-            
+
             case 5:
                 int atuqtd = Integer.parseInt(novoValor);
                 p.setqtdEstoque(atuqtd);
-                System.out.println("Cor atualizada com sucesso!");
+                System.out.println("Quantidade atualizada com sucesso!");
             break;
-            
+
             default:
                 System.out.println("Nenhuma das opções validas selecionadas.\n");
         }
-     
+
         System.out.println("\nProduto " + p.getNome() + " foi atualizado com sucesso!\n");
-           
+        
+        } catch (NumberFormatException e) {
+        System.out.println(">>> ERRO DE FORMATO: Você digitou letras em um campo numérico!");
+
+        } catch (IllegalArgumentException e) {
+            System.out.println(">>> ERRO DE VALIDAÇÃO: " + e.getMessage());
+        
+        } catch (Exception e) {
+            System.out.println(">>> ERRO AO ATUALIZAR.");
+        }
     }
     
     public void VisualizarEstoque(){
@@ -106,8 +120,14 @@ public class Estoque {
         }
     }
     
-    public void BuscarPorId(){
-    
+    public int BuscarPorId(int id) {
+        
+        for (int i = 0; i < tamanhoEstoque; i++) {
+            if (estoque[i].getId() == id) {
+                return i; 
+            }
+        }
+        return -1; 
     }
     
 }
