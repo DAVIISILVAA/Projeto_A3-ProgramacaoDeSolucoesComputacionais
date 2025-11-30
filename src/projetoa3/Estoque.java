@@ -58,7 +58,14 @@ public class Estoque {
     
     public void AtualizarLista(int atuId, int escolha, String novoValor){
                  
-         Produto p = estoque[BuscarPorId(atuId)];
+        int indice = BuscarPorId(atuId); 
+         
+        if (indice == -1) { // 2. Verifica se existe
+        System.out.println("Erro crítico: Tentativa de atualizar ID inexistente.");
+        return; 
+        }
+        
+        Produto p = estoque[indice];
 
         try{
         switch(escolha){

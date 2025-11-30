@@ -71,7 +71,7 @@ public class Main {
                 case 2: 
                     
                     if (meuEstoque.tamanhoEstoque == 0) { 
-                    System.out.println("Estoque vazio! Não há nada para atualizar.");
+                    System.out.println("Estoque vazio! Não há nada para remover.");
                     } else {
                         
                         System.out.println("--- Removendo produto... ---\n");
