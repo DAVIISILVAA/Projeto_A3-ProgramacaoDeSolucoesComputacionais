@@ -69,7 +69,24 @@ public class Main {
                 break;
                 
                 case 2: 
-                    System.out.println("Removendo produto...\n");
+                    
+                    if (meuEstoque.tamanhoEstoque == 0) { 
+                    System.out.println("Estoque vazio! Não há nada para atualizar.");
+                    } else {
+                        
+                        System.out.println("--- Removendo produto... ---\n");
+                        
+                        System.out.println("Digite o Id que deseja remover");
+                        int remId = Integer.parseInt(teclado.nextLine());
+      
+                        int indiceEncontrado = meuEstoque.BuscarPorId(remId);
+                        
+                        if (indiceEncontrado == -1) {
+                            System.out.println("\nProduto com ID " + remId + " não existe!");
+                        } else{
+                        meuEstoque.Remover(remId); 
+                        } 
+                    }
                 break;
                 
                 case 3:
