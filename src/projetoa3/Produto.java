@@ -2,7 +2,8 @@ package projetoa3;
 
 public final class Produto {
     
-    private int id = 0;
+    private static int incremental = 1;
+    private final int id = incremental++;
     private String nome;
     private String descricao;
     private float preco;
@@ -15,7 +16,7 @@ public final class Produto {
 
     public Produto(String nome, String descricao, float preco, String cor, int qtdEstoque) {
     
-    // ao invés de fazer o if de validação dnv aqui no construtor, podemos usar o set
+    // ao invï¿½s de fazer o if de validaï¿½ï¿½o dnv aqui no construtor, podemos usar o set
      
     setNome(nome);           
     setDescricao(descricao); 
@@ -28,28 +29,22 @@ public final class Produto {
         return id;
     }
 
-    public void setId(int id) {
-        this.id = id;
-    }
-
     public String getNome() {
         return nome;
     }
 
     public void setNome(String nome) {
         if (nome == null || nome.trim().isEmpty()) {
-            throw new IllegalArgumentException("Nome não pode ser vazio.");
+            throw new IllegalArgumentException("Nome nï¿½o pode ser vazio.");
         }
         this.nome = nome;
     }
 
-    public String getDescricao() {
-        return descricao;
-    }
+    public String getDescricao() { return descricao; }
 
     public void setDescricao(String descricao) {
         if (descricao == null || descricao.trim().isEmpty()) {
-            throw new IllegalArgumentException ("Descrição não pode ser vazia.");
+            throw new IllegalArgumentException ("Descriï¿½ï¿½o nï¿½o pode ser vazia.");
         }
         this.descricao = descricao;
     }
@@ -60,7 +55,7 @@ public final class Produto {
 
     public void setPreco(float preco) {
         if (preco < 0) {
-            throw new IllegalArgumentException ("Preço não pode ser negativo ou zerada");
+            throw new IllegalArgumentException ("Preï¿½o nï¿½o pode ser negativo ou zerada");
         }
         this.preco = preco;
     }
@@ -71,7 +66,7 @@ public final class Produto {
 
     public void setCor(String cor) {
         if (cor == null || cor.trim().isEmpty()){
-            throw new IllegalArgumentException("Cor não pode ser vazia");
+            throw new IllegalArgumentException("Cor nï¿½o pode ser vazia");
         }
         this.cor = cor;
     }
@@ -82,7 +77,7 @@ public final class Produto {
 
     public void setqtdEstoque(int qtdEstoque) {
         if (qtdEstoque < 0){
-            throw new IllegalArgumentException ("Quandidade em estoque não pode ser negativa.");
+            throw new IllegalArgumentException ("Quandidade em estoque nï¿½o pode ser negativa.");
         }
         this.qtdEstoque = qtdEstoque;
     }
