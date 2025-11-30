@@ -11,7 +11,7 @@ public class Estoque {
 
         if (estoque.length == tamanhoEstoque) {
 
-            System.out.println("\nSem espaÁo, aumentando o estoque...");
+            System.out.println("\nSem espa√ßo, aumentando o estoque...");
 
             int novoTamanho = tamanhoEstoque * 2;
 
@@ -22,8 +22,7 @@ public class Estoque {
                 novoEstoque[i] = estoque[i];
 
             }
-
-            estoque = novoEstoque;
+           estoque = novoEstoque;
         }
 
         Produto produto = new Produto(addNome, addDesc, addpreco, addCor, addQtd);
@@ -36,8 +35,8 @@ public class Estoque {
         System.out.println("Tamanho estoque: " + estoque.length);
 
     }
-
-    public void Remover(int id) {
+    
+    public void Remover(int id){
         int posicao = BuscarPorId(id);
 
         if(posicao != 99999){
@@ -45,51 +44,61 @@ public class Estoque {
             System.out.println("Produto foi removido");
         }
     }
+    
+    public void AtualizarLista(int atuId, int escolha, String novoValor){
+                 
+         Produto p = estoque[BuscarPorId(atuId)];
 
-    public void AtualizarLista(int atuId, int escolha, String novoValor) {
-
-        Produto p = estoque[BuscarPorId(atuId)];
-
-        switch (escolha) {
+        try{
+        switch(escolha){
             case 1:
                 p.setNome(novoValor);
                 System.out.println("Nome atualizado com sucesso!");
-                break;
+            break;
 
-            case 2:
+            case 2: 
                 p.setDescricao(novoValor);
-                System.out.println("DescriÁ„o atualizada com sucesso!");
-                break;
+                System.out.println("Descri√ß√£o atualizada com sucesso!");
+            break;
 
             case 3:
                 Float atuPreco = Float.parseFloat(novoValor);
                 p.setPreco(atuPreco);
-                System.out.println("PreÁo atualizado com sucesso!");
-                break;
+                System.out.println("Pre√ßo atualizado com sucesso!");
+            break;
 
             case 4:
                 p.setCor(novoValor);
                 System.out.println("Cor atualizada com sucesso!");
-                break;
+            break;
 
             case 5:
                 int atuqtd = Integer.parseInt(novoValor);
                 p.setqtdEstoque(atuqtd);
-                System.out.println("Cor atualizada com sucesso!");
-                break;
+                System.out.println("Quantidade atualizada com sucesso!");
+            break;
 
             default:
-                System.out.println("Nenhuma das opÁıes validas selecionadas.\n");
+                System.out.println("Nenhuma das op√ß√µes validas selecionadas.\n");
         }
 
         System.out.println("\nProduto " + p.getNome() + " foi atualizado com sucesso!\n");
+        
+        } catch (NumberFormatException e) {
+        System.out.println(">>> ERRO DE FORMATO: Voc√™ digitou letras em um campo num√©rico!");
 
+        } catch (IllegalArgumentException e) {
+            System.out.println(">>> ERRO DE VALIDA√á√ÉO: " + e.getMessage());
+        
+        } catch (Exception e) {
+            System.out.println(">>> ERRO AO ATUALIZAR.");
+        }
     }
 
     public void VisualizarEstoque() {
 
         if (tamanhoEstoque == 0) {
-            System.out.println("Estoque est· vazio.");
+            System.out.println("Estoque est√° vazio.");
         } else {
 
             System.out.println("Tamanho estoque: " + estoque.length);
@@ -98,27 +107,24 @@ public class Estoque {
 
                 Produto p = estoque[i];
 
-                System.out.println("\nÕndice [" + i + "]: ID: " + p.getId() +
+                System.out.println("\n√çndice [" + i + "]: ID: " + p.getId() +
                         " | Nome: " + p.getNome() +
-                        " | DescriÁ„o: " + p.getDescricao() +
-                        " | PreÁo: " + p.getPreco() +
+                        " | Descri√ß√£o: " + p.getDescricao() +
+                        " | Pre√ßo: " + p.getPreco() +
                         " | Cor: " + p.getCor() +
                         " | Quantidade: " + p.getqtdEstoque());
             }
         }
     }
-
+    
     public int BuscarPorId(int id) {
-        int localizador;
-
-        for (localizador = 0; localizador < estoque.length; localizador++) {
-
-            if (id == estoque[localizador].getId()) {
-                break;
+        
+        for (int i = 0; i < tamanhoEstoque; i++) {
+            if (estoque[i].getId() == id) {
+                return i; 
             }
         }
-
-        return localizador;
+        return -1; 
     }
 
 }

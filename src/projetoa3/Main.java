@@ -15,7 +15,7 @@ public class Main {
         while(continuar == true){
             
             System.out.println("\n----------------------\n" +
-                               "Escolha uma das opÁıes:\n" +
+                               "Escolha uma das op√ß√µes:\n" +
                                "\n1 - adicionar produto" +
                                "\n2 - remover produto" +
                                "\n3 - atualizar produto" +
@@ -26,20 +26,23 @@ public class Main {
             
             String entradaOpcao = teclado.nextLine(); 
             
+            try{
             byte opcoes = Byte.parseByte(entradaOpcao);
             
             switch(opcoes){
                 
                 case 1:
+                    try {
+                    System.out.println("");
                     System.out.println("--- Adicionando Novo Produto ---");
 
                     System.out.print("Nome: ");
                     String addNome = teclado.nextLine();
 
-                    System.out.print("DescriÁ„o: ");
+                    System.out.print("Descri√ß√£o: ");
                     String addDesc = teclado.nextLine();
 
-                    System.out.print("PreÁo: ");
+                    System.out.print("Pre√ßo: ");
                     float addPreco = Float.parseFloat(teclado.nextLine());
 
                     System.out.print("Cor: ");
@@ -49,6 +52,20 @@ public class Main {
                     int addQtd = Integer.parseInt(teclado.nextLine());
 
                     meuEstoque.Inserir(addNome,addDesc,addPreco,addCor, addQtd);
+                    
+                    } catch (NumberFormatException e) {
+                    // 1¬∫ CATCH: Captura EXCLUSIVAMENTE erros de convers√£o (letras em n√∫meros)
+                    System.out.println("\n>>> ERRO DE FORMATO: Voc√™ digitou letras em um campo num√©rico!");
+        
+                    } catch (IllegalArgumentException e) {
+                        // 2¬∫ CATCH: Captura os seus "throws" da classe Produto (filtros)
+                        System.out.println("\n>>> ERRO DE VALIDA√á√ÉO: " + e.getMessage());
+                        System.out.println(">>> O produto N√ÉO foi cadastrado.");
+    
+                    } catch (Exception e) {
+                        // 3¬∫ CATCH: Captura qualquer outra coisa que sobrar
+                        System.out.println("\n>>> ERRO DESCONHECIDO: " + e.getMessage());
+                    }
                 break;
                 
                 case 2: 
@@ -59,59 +76,70 @@ public class Main {
                     
                     System.out.println("--- Atualizar Produto ---");
                     
-                    System.out.println("Digite o Id do produto que deseja atualizar: ");
-                    int atuId = Integer.parseInt(teclado.nextLine());
+                    if (meuEstoque.tamanhoEstoque == 0) { 
+                    System.out.println("Estoque vazio! N√£o h√° nada para atualizar.");
+                    } else {
                     
-                    System.out.println("----------------------\n" +
-                               "Escolha uma das opÁıes:\n" +
-                               "\n1 - Nome" +
-                               "\n2 - DescriÁ„o" +
-                               "\n3 - PreÁo" +
-                               "\n4 - Cor" +
-                               "\n5 - Quantidade" + 
-                               "\n----------------------\n"
-                               );
-                    
-                    int escolha = Integer.parseInt(teclado.nextLine());
-                    
-                    String novoValor;
-                    
-                    switch(escolha){
+                        System.out.println("Digite o ID do produto que deseja atualizar: ");
+                        int atuId = Integer.parseInt(teclado.nextLine());
                         
-                        case 1:
-                            System.out.print("Nome: ");
-                            novoValor = teclado.nextLine();
-                            meuEstoque.AtualizarLista(atuId, escolha, novoValor);
-                        break;
-                        
-                        case 2:
-                            System.out.print("DescriÁ„o: ");
-                            novoValor = teclado.nextLine();
-                            meuEstoque.AtualizarLista(atuId, escolha, novoValor);
-                        break;
-                        
-                        case 3:
-                            System.out.print("PreÁo: ");
-                            novoValor = teclado.nextLine();
-                            meuEstoque.AtualizarLista(atuId, escolha, novoValor);
-                        break;
-                        
-                        case 4:
-                            System.out.print("Cor: ");
-                            novoValor = teclado.nextLine();
-                            meuEstoque.AtualizarLista(atuId, escolha, novoValor);
-                        break;
-                        
-                        case 5:
-                            System.out.print("Quantidade: ");
-                            novoValor = teclado.nextLine();
-                            meuEstoque.AtualizarLista(atuId, escolha, novoValor);
-                        break;
-                        
-                        default:
-                            System.out.println("Nenhuma opÁ„o valida selecionada.");
-                    }
-                    
+                        int indiceEncontrado = meuEstoque.BuscarPorId(atuId);
+
+                        if (indiceEncontrado == -1) {
+                            System.out.println("\nProduto com ID " + atuId + " n√£o existe!");
+                        } else {
+
+                        System.out.println("----------------------\n" +
+                                   "Escolha uma das op√ß√µes:\n" +
+                                   "\n1 - Nome" +
+                                   "\n2 - Descri√ß√£o" +
+                                   "\n3 - Pre√ßo" +
+                                   "\n4 - Cor" +
+                                   "\n5 - Quantidade" + 
+                                   "\n----------------------\n"
+                                   );
+
+                        int escolha = Integer.parseInt(teclado.nextLine());
+
+                        String novoValor;
+
+                        switch(escolha){
+
+                            case 1:
+                                System.out.print("Nome: ");
+                                novoValor = teclado.nextLine();
+                                meuEstoque.AtualizarLista(atuId, escolha, novoValor);
+                            break;
+
+                            case 2:
+                                System.out.print("Descri√ß√£o: ");
+                                novoValor = teclado.nextLine();
+                                meuEstoque.AtualizarLista(atuId, escolha, novoValor);
+                            break;
+
+                            case 3:
+                                System.out.print("Pre√ßo: ");
+                                novoValor = teclado.nextLine();
+                                meuEstoque.AtualizarLista(atuId, escolha, novoValor);
+                            break;
+
+                            case 4:
+                                System.out.print("Cor: ");
+                                novoValor = teclado.nextLine();
+                                meuEstoque.AtualizarLista(atuId, escolha, novoValor);
+                            break;
+
+                            case 5:
+                                System.out.print("Quantidade: ");
+                                novoValor = teclado.nextLine();
+                                meuEstoque.AtualizarLista(atuId, escolha, novoValor);
+                            break;
+
+                            default:
+                                System.out.println("Nenhuma op√ß√£o valida selecionada.");
+                            }
+                        }
+                    }    
                 break;
                 
                 case 4: 
@@ -125,14 +153,15 @@ public class Main {
                 break;
                 
                 default:
-                    System.out.println("Nenhuma das opÁıes validas selecionadas.\n");
+                    System.out.println("Nenhuma das op√ß√µes validas selecionadas.\n");
                     
-            }        
-        
-        }
-        
-        teclado.close();
-        
-    }
-        
+            } 
+            
+            }catch (NumberFormatException e) {
+                System.out.println("\n>>> Erro: Digite apenas n√∫meros de 1 a 5!");
+            }
+                 
+        }     
+        teclado.close();       
+    }       
 }
