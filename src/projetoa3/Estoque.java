@@ -6,37 +6,34 @@ public class Estoque {
     
     Produto[] estoque = new Produto[1];
     int tamanhoEstoque = 0;
-    int incrementaId = 1;
-    
-    public void Inserir(String addNome, String addDesc, float addpreco, String addCor, int addQtd){
-        
-        if (estoque.length == tamanhoEstoque){
-            
-            System.out.println("\nSem espaÁo, aumentando o estoque...");
-            
+
+    public void Inserir(String addNome, String addDesc, float addpreco, String addCor, int addQtd) {
+
+        if (estoque.length == tamanhoEstoque) {
+
+            System.out.println("\nSem espa√ßo, aumentando o estoque...");
+
             int novoTamanho = tamanhoEstoque * 2;
-            
+
             Produto[] novoEstoque = new Produto[novoTamanho];
-            
-            for(int i = 0; i < tamanhoEstoque; i++){
-                
-            novoEstoque[i] = estoque[i];
-            
+
+            for(int i = 0; i < tamanhoEstoque; i++) {
+
+                novoEstoque[i] = estoque[i];
+
             }
            estoque = novoEstoque;
         }
-        
-        Produto produto = new Produto(addNome,addDesc,addpreco,addCor,addQtd);
-        produto.setId(incrementaId);
-        incrementaId ++;
-        
+
+        Produto produto = new Produto(addNome, addDesc, addpreco, addCor, addQtd);
+
         estoque[tamanhoEstoque] = produto;
-        
+
         tamanhoEstoque++;
-        
+
         System.out.println("\nProduto " + produto.getNome() + " foi Adicionado com sucesso!\n");
         System.out.println("Tamanho estoque: " + estoque.length);
-        
+
     }
     
     public void Remover(int id){
@@ -61,13 +58,13 @@ public class Estoque {
 
             case 2: 
                 p.setDescricao(novoValor);
-                System.out.println("DescriÁ„o atualizada com sucesso!");
+                System.out.println("Descri√ß√£o atualizada com sucesso!");
             break;
 
             case 3:
                 Float atuPreco = Float.parseFloat(novoValor);
                 p.setPreco(atuPreco);
-                System.out.println("PreÁo atualizado com sucesso!");
+                System.out.println("Pre√ßo atualizado com sucesso!");
             break;
 
             case 4:
@@ -82,40 +79,40 @@ public class Estoque {
             break;
 
             default:
-                System.out.println("Nenhuma das opÁıes validas selecionadas.\n");
+                System.out.println("Nenhuma das op√ß√µes validas selecionadas.\n");
         }
 
         System.out.println("\nProduto " + p.getNome() + " foi atualizado com sucesso!\n");
         
         } catch (NumberFormatException e) {
-        System.out.println(">>> ERRO DE FORMATO: VocÍ digitou letras em um campo numÈrico!");
+        System.out.println(">>> ERRO DE FORMATO: Voc√™ digitou letras em um campo num√©rico!");
 
         } catch (IllegalArgumentException e) {
-            System.out.println(">>> ERRO DE VALIDA«√O: " + e.getMessage());
+            System.out.println(">>> ERRO DE VALIDA√á√ÉO: " + e.getMessage());
         
         } catch (Exception e) {
             System.out.println(">>> ERRO AO ATUALIZAR.");
         }
     }
-    
-    public void VisualizarEstoque(){
-        
-        if(tamanhoEstoque == 0){
-            System.out.println("Estoque est· vazio.");
-        }else{
-            
+
+    public void VisualizarEstoque() {
+
+        if (tamanhoEstoque == 0) {
+            System.out.println("Estoque est√° vazio.");
+        } else {
+
             System.out.println("Tamanho estoque: " + estoque.length);
-        
-            for(int i = 0; i < tamanhoEstoque; i++){
-            
-            Produto p = estoque[i];
-            
-            System.out.println("\nÕndice [" + i + "]: ID: " + p.getId() + 
-                               " | Nome: " + p.getNome() + 
-                               " | DescriÁ„o: " + p.getDescricao() + 
-                               " | PreÁo: " + p.getPreco() + 
-                               " | Cor: " + p.getCor() +
-                               " | Quantidade: " + p.getqtdEstoque());
+
+            for (int i = 0; i < tamanhoEstoque; i++) {
+
+                Produto p = estoque[i];
+
+                System.out.println("\n√çndice [" + i + "]: ID: " + p.getId() +
+                        " | Nome: " + p.getNome() +
+                        " | Descri√ß√£o: " + p.getDescricao() +
+                        " | Pre√ßo: " + p.getPreco() +
+                        " | Cor: " + p.getCor() +
+                        " | Quantidade: " + p.getqtdEstoque());
             }
         }
     }
@@ -129,5 +126,5 @@ public class Estoque {
         }
         return -1; 
     }
-    
+
 }
