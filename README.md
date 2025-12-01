@@ -1,32 +1,31 @@
-Esse Projeto deve contemplar todos requisitos solicitados para ser considerado como nossa A3.
-
-Instruções:
-
-O Projeto A3 deverá ser desenvolvido em grupo (4 ± 1 alunos);
-O Projeto e o material de apresentação deverão ser entregues até o dia: 01/12
-O projeto deverá ser apresentado, por todo o grupo, de forma oral no dia: a definir
-O tempo para apresentação será de 15 minutos, sendo 10 minutos para apresentação e 5 minutos para arguição. 
-
-O que devo entregar?
-
-Um arquivo texto com os nomes de todos os integrantes do grupo. Nomes ausentes acarretarão na perda de um ponto para adicioná-los posteriormente. Prestem muita atenção!
-O projeto que fora desenvolvido em Java com toda a estrutura de pacotes e arquivos. Preferencialmente no IDE NetBeans.
-Adicione todo o conteúdo em uma pasta com os primeiros nomes dos integrantes. Siga esta nomenclatura exemplo: AnnaJoseMariaJoao. Apenas um integrante deve entregar o projeto.
-
-Para entregar clique no link abaixo:
-_____________________________________
-
-Desenvolvimento:
-
-Elabore um projeto para um determinado contexto de aplicação que o seu grupo deverá indicar, fazendo uma descrição dessa aplicação. Esse projeto deverá utilizar a tecnologia Java e deverá satisfazer os requisitos básicos a seguir: 
-
-Escrever uma classe referente à entidade que deseja representar, exemplos: Aluno, Produto, Pedido etc. Nessa classe defina, no mínimo, seis atributos, sendo um deles obrigatoriamente *id (int). Escreva os métodos getters e setters, dois construtores, um padrão e outro deve ter todos os parâmetros, exceto id.
-Em uma segunda classe, defina: 
-Um array de objetos (defina-o como array da classe);
-Um método para inserir objetos, um por vez. (use uma lógica para redimensionar o array quando estiver totalmente ocupado);
-Um método para remover por id, um objeto do array;
-Um método para atualizar um atributo por id.
-Dois métodos para realizar a busca por id. Um para retornar todas as informações relacionadas ao objeto pesquisado. E outro, privativo, que retorne apenas o índice referente à posição no array, para ser usado na operação de remoção.
-*O id deve ser sequencial, começando a partir de um e incrementado automaticamente.
-Na classe principal, elabore uma estrutura que tenha disponível ao usuário do sistema, todas as operações a serem realizadas no array. Utilize interface gráfica para todas as solicitações das operações e visualização de resultados. 
-Atenção! Não será permitido o uso de recursos nativos como ArrayList, LinkedList etc. 
+Projeto A3 – Programação de Soluções Computacionais
+Este repositório contém o projeto acadêmico “A3” desenvolvido em Java para a disciplina de Programação de Soluções Computacionais. O objetivo é criar uma aplicação completa que manipule uma entidade escolhida pelo grupo (Aluno, Produto, Pedido etc.), incluindo lógica de cadastro, atualização, remoção e visualização via interface gráfica.
+📋 Requisitos Funcionais
+Representar uma entidade com mínimo de 6 atributos, sendo um deles id inteiro gerado sequencialmente.
+Implementar getters/setters, dois construtores (padrão e completo sem id) e lógica de persistência em array nativo (sem usar ArrayList, LinkedList, etc.).
+Incluir métodos para:
+Inserção com redimensionamento do array quando necessário;
+Remoção por id;
+Atualização de atributos por id;
+Busca por id (retornando o objeto completo e, em método privado, apenas o índice).
+Prover interface gráfica que exponha todas as operações ao usuário.
+🧱 Estrutura Esperada
+src/projetoa3/├── <pacotes e classes Java do domínio>├── Main.java      # Interface gráfica e menu de operações└── ...            # Outras classes de suporteREADME.md          # Este arquivo
+> Observação: o projeto deve ser entregue com a estrutura completa de pacotes e arquivos, preferencialmente desenvolvida no NetBeans, seguindo a nomenclatura solicitada (pasta com os primeiros nomes dos integrantes).
+🚀 Como Executar
+Clonar o repositório
+   git clone https://github.com/DAVIISILVAA/Projeto_A3-ProgramacaoDeSolucoesComputacionais.git
+Abrir no NetBeans ou IDE equivalente
+Importar como projeto Maven/Java padrão.
+Garantir que o JDK configurado atende aos requisitos do curso.
+Executar a classe principal
+Localize a classe responsável pela interface gráfica (por exemplo, Main).
+Rode a aplicação para acessar o menu de operações sobre o array.
+🧪 Sugestões de Teste
+Testar inserções até o array inicial encher para validar o redimensionamento.
+Repetir operações de exclusão e atualização para verificar a busca por índice.
+Garantir que a interface gráfica reflete todas as ações (confirmações, mensagens de erro, etc.).
+👥 Sobre o Grupo
+O projeto deve incluir um arquivo texto com os nomes dos integrantes. Nomes ausentes durante a entrega acarretam desconto conforme as regras do curso.
+📄 Licença
+Repositório acadêmico sem licença explícita. Utilize somente para fins educacionais seguindo as diretrizes da instituição.
