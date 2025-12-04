@@ -39,7 +39,10 @@ Este repositório contém o projeto acadêmico “A3” desenvolvido em Java par
 
 ## 👥 Sobre o Grupo
 
-O projeto deve incluir um arquivo texto com os nomes dos integrantes. Nomes ausentes durante a entrega acarretam desconto conforme as regras do curso.
+Gabriel - https://github.com/GabrielRomao-git
+Davi - https://github.com/DAVIISILVAA
+Mauricio - https://github.com/Antiael
+Matheus - https://github.com/MathAssis31
 
 ## 📄 Licença
 
